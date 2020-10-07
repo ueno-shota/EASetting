@@ -1,5 +1,9 @@
 <head>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js" charset="utf-8">
+    const LINE_TOKEN = "nP59McflTu5bzBMUvEH2sg9h05ujQcHhFYO3C8rJnB44QDZ1P45hQHBUfcxa1WJahviGOR9PxK+eAH964YXohKJ6nd99eo0TkcLMluOfGvJwAqbRGg4rTbmzMO0RaOtxHnSrBRcdtaJMti6pawPmYQdB04t89/1O/w1cDnyilFU="
+    const LINE_URL = "https://api.line.me/v2/bot/message/reply
+    // 応答用Tokenを取得
+    const replyToken = JSON.parse(e.postData.contents).events[0].replyToken
   </script>
 </head>
 
@@ -117,6 +121,13 @@ document.querySelector("#name").innerText = name
  </div>
  <div class="item no-label">
    <input type="submit">
+   <script>
+    const after_msg = {
+    'type': 'text',
+    'text': "データを入力しました。",
+    }
+    messages.push(after_msg);
+  </script>
  </div>
 
 </form>
