@@ -127,6 +127,19 @@ document.querySelector("#name").innerText = name
     'text': "データを入力しました。",
     }
     messages.push(after_msg);
+
+    //lineで返答する
+    UrlFetchApp.fetch(LINE_URL, {
+      'headers': {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': `Bearer ${LINE_TOKEN}`,
+      },
+      'method': 'post',
+      'payload': JSON.stringify({
+      'replyToken': replyToken,
+      'messages': messages,
+      }),
+    });
   </script>
  </div>
 
