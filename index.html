@@ -139,7 +139,9 @@ document.querySelector("#name").innerText = name
       'replyToken': replyToken,
       'messages': messages,
       }),
-    });
+    })
+
+    ContentService.createTextOutput(JSON.stringify({'content': 'post ok'})).setMimeType(ContentService.MimeType.JSON)
   </script>
  </div>
 
