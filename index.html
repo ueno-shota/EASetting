@@ -1,32 +1,38 @@
+<!-- LINE developersのメッセージ送受信設定に記載のアクセストークン -->
+<script type="text/javascript">
+  const LINE_TOKEN = "nP59McflTu5bzBMUvEH2sg9h05ujQcHhFYO3C8rJnB44QDZ1P45hQHBUfcxa1WJahviGOR9PxK+eAH964YXohKJ6nd99eo0TkcLMluOfGvJwAqbRGg4rTbmzMO0RaOtxHnSrBRcdtaJMti6pawPmYQdB04t89/1O/w1cDnyilFU="
+  const LINE_URL = "https://api.line.me/v2/bot/message/reply"
+</script>
+
 <head>
   <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js" charset="utf-8">
   </script>
 </head>
-
 
 <body>
   <div>Hello <span id="name">world</span>.</div>
 </body>
 
 <script>
-// LIFFの初期化を行う
-liff.init({
-// 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
-liffId: "1655037253-8YzRA1WR"
+  // LIFFの初期化を行う
+  liff.init({
+    // 自分のLIFF ID（URLから『https://liff.line.me/』を除いた文字列）を入力する
+    liffId: "1655037253-8YzRA1WR"
 
-}).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
+  }).then(() => { // 初期化完了. 以降はLIFF SDKの各種メソッドを利用できる
 
-// 利用者のLINEアカウントのプロフィール名を取得
-liff.getProfile().then(profile => {
+    // 利用者のLINEアカウントのプロフィール名を取得
+    liff.getProfile().then(profile => {
 
-// プロフィール名
-const name = profile.userId
+      // プロフィール名
+      const name = profile.userId
 
-// HTMLに挿入
-document.querySelector("#name").innerText = name
-})
+      // HTMLに挿入
+      document.querySelector("#name").innerText = name
+    })
 })
 </script>
+
 // test-----------------------------
 
 <form class="contact-form" action="//www-creators.com/rsc/receiver.php" method="post">
@@ -115,30 +121,13 @@ document.querySelector("#name").innerText = name
    <label class="label" for="name" name="name">ロット数</label><br>
    <input id="name" placeholder="0.1" type="number">
  </div>
+
+ <<br>
  <div class="bottom">
    <input type="button" name="ok" value="以上の内容で確定し、送信">
    <script>
-    const after_msg = {
-    'type': 'text',
-    'text': "データを入力しました。",
-    }
-    messages.push(after_msg);
 
-    //lineで返答する
-    UrlFetchApp.fetch(LINE_URL, {
-      'headers': {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': `Bearer ${LINE_TOKEN}`,
-      },
-      'method': 'post',
-      'payload': JSON.stringify({
-      'replyToken': replyToken,
-      'messages': messages,
-      }),
-    })
-
-    ContentService.createTextOutput(JSON.stringify({'content': 'post ok'})).setMimeType(ContentService.MimeType.JSON)
-  </script>
+   </script>
  </div>
 
 </form>
